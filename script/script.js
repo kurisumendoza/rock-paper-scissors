@@ -16,34 +16,57 @@ function playRound(playerSelection, computerSelection) {
   
   if (playerSelection === 'rock') {
     if (computerSelection === 'paper') {
-      return 'You Lose! Paper beats Rock.';
+      return 'Lose';
     } else if (computerSelection === 'scissors') {
-      return 'You Win! Rock beats Scissors.';
-    } else return 'Tie. Please try again.';
+      return 'Win';
+    } else return 'Tie.';
   } else if (playerSelection === 'paper') {
     if (computerSelection === 'rock') {
-      return 'You Win! Paper beats Rock.';
+      return 'Win';
     } else if (computerSelection === 'scissors') {
-      return 'You Lose! Scissors beat Paper.';
-    } else return 'Tie. Please try again.';
+      return 'Lose';
+    } else return 'Tie';
   } else if (playerSelection === 'scissors') {
     if (computerSelection === 'rock') {
-      return 'You Lose! Rock beats Scissors.';
+      return 'Lose';
     } else if (computerSelection === 'paper') {
-      return 'You win! Scissors beat Paper.';
-    } else return 'Tie. Please try again.';
-  } else return 'Sorry. Your choice is invalid. Please try again.'
+      return 'Win';
+    } else return 'Tie';
+  } else return 'Invalid';
 }
 
 function game() {
   let i = 1;
+  let result = [];
   while (i <= 5) {
-    console.log(playRound(playerSelection, computerSelection));
+    gameResult = playRound(playerSelection, computerSelection);
+    result.push(gameResult);
     i++;
   }
+
+  const resultCount = {};
+  
+  countResults();
+
+  function countResults() {
+    result.forEach(count => {
+      resultCount[count] = (resultCount[count] || 0) + 1;
+    });
+    return resultCount;
+  }
+
+  console.log(result);
+  console.log(resultCount)
+    
+  if (resultCount.Invalid === 5) {
+    return 'Invalid. Please pick a valid option.';
+  } else if (resultCount.Win > resultCount.Lose || resultCount.Lose == undefined) {
+    return 'Congratulations! You Win! Good job.';
+  } else if (resultCount.Win < resultCount.Lose || resultCount.Win == undefined) {
+    return 'Sorry. You Lose. Better luck next time.';
+  } else if (resultCount.Win === resultCount.Lose || resultCount.Tie === 5) {
+    return 'Tie. Try again.';
+  } 
 }
 
-console.log('You: ' + playerSelection);
-console.log('Computer: ' + getComputerChoice());
-// console.log(playRound(playerSelection, computerSelection));
-game();
+console.log(game());
