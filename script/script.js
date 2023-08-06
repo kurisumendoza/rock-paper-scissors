@@ -11,6 +11,9 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+
+  getComputerChoice();
+  
   if (playerSelection === 'rock') {
     if (computerSelection === 'paper') {
       return 'You Lose! Paper beats Rock.';
@@ -32,6 +35,15 @@ function playRound(playerSelection, computerSelection) {
   } else return 'Sorry. Your choice is invalid. Please try again.'
 }
 
+function game() {
+  let i = 1;
+  while (i <= 5) {
+    console.log(playRound(playerSelection, computerSelection));
+    i++;
+  }
+}
+
 console.log('You: ' + playerSelection);
 console.log('Computer: ' + getComputerChoice());
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection));
+game();
