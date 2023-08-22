@@ -1,0 +1,12 @@
+body {
+  font-family: Arial;
+  background-color: #ffe1cd;
+}
+
+button img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  border-style: solid;
+  object-fit: fill;
+}
