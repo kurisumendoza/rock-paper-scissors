@@ -3,10 +3,29 @@ body {
   background-color: #ffe1cd;
 }
 
-button img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
+.option {
+  height: 120px;
+  width: 120px;
+  border-radius: 80px;
   border-style: solid;
-  object-fit: fill;
+  border-width: 5px;
+  background-color: #f7f8fa;
+  cursor: pointer;
+  transition: 0.1s;
+  align-items: center;
+}
+
+.option img {
+  height: 90px;
+  border-radius: 60px;
+  vertical-align: middle;
+  transition: 0.1s;
+}
+
+.option img:hover {
+  transform: scale(1.5);
+}
+
+.option img:active {
+  transform: scale(1.3);
 }
