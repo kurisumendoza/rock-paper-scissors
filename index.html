@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
-  <!-- <script defer src="script/script-v2.js"></script> -->
+  <script defer src="script/script-v2.js"></script>
   <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
@@ -20,12 +20,18 @@
     <button class="option scissors">
       <img src="images/scissors.jpg" alt="scissors">
     </button>
-    <p>Your choice: </p>
-    <p>Computer's choice: </p>
-    <p>Score</p>
-    <p>You: vs Computer:</p>
   </div>
+  <div class="picks">
+    <p class="your-pick">Your pick: <span></span></p>
+    <p class="comp-pick">Computer's pick: <span></span></p>
+  </div>
+  <div class="scoreboard">
+    <p id="score-tag">Score</p>
+    <p class="your-score">You: <span></span></p>
+    <p class="comp-score">Computer: <span></span></p>
+    <p class="ties">Tie: <span></span></p>
+  </div>
+  <div class="result"></div>
 
-  
 </body>
 </html>
