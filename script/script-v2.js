@@ -7,19 +7,19 @@ let playerSelection = '';
 const rock = document.querySelector('.rock');
 rock.addEventListener('click', () => {
   playerSelection = 'rock';
-  temporaryResult();
+  calculateResult();
 });
 
 const paper = document.querySelector('.paper');
 paper.addEventListener('click', () => {
   playerSelection = 'paper';
-  temporaryResult();
+  calculateResult();
 });
 
 const scissors = document.querySelector('.scissors');
 scissors.addEventListener('click', () => {
   playerSelection = 'scissors';
-  temporaryResult();
+  calculateResult();
 });
 
 function getComputerChoice() {
@@ -67,10 +67,17 @@ function recordScore(outcome) {
   } else if (outcome === 'Tie') {
     ++tieTotal;
     tie.textContent = `${tieTotal}`;
+  } else if (outcome === 'Reset') {
+    winTotal = 0;
+    lossTotal = 0;
+    tieTotal = 0;
+    win.textContent = '';
+    lose.textContent = '';
+    tie.textContent = '';
   }
 }
 
-function temporaryResult() {
+function calculateResult() {
   let yourPick = document.querySelector('.your-pick span');
   yourPick.textContent = playerSelection.toUpperCase();
 
@@ -85,4 +92,24 @@ function temporaryResult() {
   } else if (lossTotal === 5) {
     finalResult.textContent = 'You lose. Please try again.';
   }
+
+  let replay = document.querySelector('.play-again');
+
+  if (winTotal === 5 || lossTotal === 5) {
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    replay.innerHTML = '<button>Play Again</button>'
+  }
+
+  replay.addEventListener('click', () => {
+    recordScore('Reset');
+    finalResult.textContent = '';
+    yourPick.textContent = '';
+    compPick.textContent = '';
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+    replay.innerHTML = '';
+  })
 }

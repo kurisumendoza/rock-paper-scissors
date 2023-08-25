@@ -68,3 +68,24 @@ body {
   margin-top: 10px;
   font-size: 30px;
 }
+
+.play-again button {
+  margin-top: 10px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  border-style: none;
+  padding: 8px 25px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.play-again button:hover {
+  transform: scale(1.1);
+}
+
+.play-again button:active {
+  transform: scale(1.05);
+}
